@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>FutPro</title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+          rel="stylesheet"> 
+         
+
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4 shadow-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" onclick="mostrarPagina('home')">FutPro</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="mostrarPagina('home')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="mostrarPagina('produtos')">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="mostrarPagina('sobre')">Sobre Nós</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="btn btn-outline-light position-relative" href="#" onclick="mostrarPagina('carrinho')">
+                🛒 Carrinho
+                <span id="badgeCarrinho" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">
+                    0
+                </span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Página Home -->
+    <div id="home" class="pagina ativa p-4">
+        <div class="container">
+            <img src="./assets/Gemini_Generated_Image_2ecu0u2ecu0u2ecu.png" 
+                 alt="Logo da Loja" 
+                 class="logo d-block mx-auto mb-4 rounded-circle" 
+                 style="max-width: 500px;">
+
+            <h1 class="text-center mb-4">Bem-vindo à FutPro!</h1>
+            <p class="text-center mb-4 lead">Encontre as melhores camisas de times do Brasil</p>
+            
+            <div class="text-center">
+                <button class="btn btn-primary btn-lg" onclick="mostrarPagina('produtos')">
+                    Ver Produtos
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página Produtos -->
+    <div id="produtos" class="pagina p-4">
+        <div class="container">
+            <h2 class="text-center mb-4">Nossas Camisas</h2>
+            
+            <p class="text-center mb-4">Pesquise sua camisa dos sonhos:</p>
+
+            <input type="text" 
+                   id="busca" 
+                   placeholder="Buscar produto por nome..." 
+                   class="form-control mx-auto mb-4" 
+                   style="max-width: 300px;">
+
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="produtosContainer"></div>
+        </div>
+    </div>
+
+    <!-- Página Sobre Nós -->
+    <div id="sobre" class="pagina p-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                   
+                    <div class="text-center mb-5">
+                        <h1 class="display-4 text-primary mb-3">Sobre a FutPro</h1>
+                        <p class="lead">Há mais de 10 anos levando a paixão pelo futebol até você</p>
+                    </div>
+
+                    <!-- Nossa História -->
+                    <div class="row align-items-center mb-5">
+                        <div class="col-md-6">
+                            <h2 class="text-primary mb-4">Nossa História</h2>
+                            <p class="mb-3">
+                                A FutPro nasceu em 2025 da paixão pelo futebol e da vontade de oferecer 
+                                aos torcedores brasileiros camisas de qualidade com preços justos.
+                            </p>
+                            <p class="mb-3">
+                                Começamos como uma pequena loja no centro de Belo Horizonte e hoje somos 
+                                referência nacional em camisas de times, atendendo torcedores em todo 
+                                o Brasil.
+                            </p>
+                            <p>
+                                Nossa missão é simples: conectar você à sua paixão pelo futebol através 
+                                de produtos de qualidade que honram a história e as cores do seu time.
+                            </p>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <div class="bg-secondary rounded d-flex align-items-center justify-content-center overflow-hidden" 
+                                 style="height: 400px;">
+                                <img src="assets/equipe.jpeg" 
+                                     alt="Nossa equipe FutPro" 
+                                     class="img-fluid h-100 w-100"
+                                     style="object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nossos Valores -->
+                    <div class="bg-primary text-white p-5 rounded mb-5">
+                        <h2 class="text-center mb-4">Nossos Valores</h2>
+                        <div class="row text-center">
+                            <div class="col-md-4 mb-4">
+                                <div class="bg-white text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
+                                     style="width: 80px; height: 80px;">
+                                    <span class="fs-2">✓</span>
+                                </div>
+                                <h4>Qualidade</h4>
+                                <p class="mb-0">Trabalhamos apenas com produtos originais e de alta qualidade</p>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="bg-white text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
+                                     style="width: 80px; height: 80px;">
+                                    <span class="fs-2">❤️</span>
+                                </div>
+                                <h4>Paixão</h4>
+                                <p class="mb-0">Compartilhamos a mesma paixão pelo futebol que nossos clientes</p>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="bg-white text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
+                                     style="width: 80px; height: 80px;">
+                                    <span class="fs-2">🚀</span>
+                                </div>
+                                <h4>Inovação</h4>
+                                <p class="mb-0">Sempre buscamos novas formas de melhorar sua experiência</p>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    
+
+                    <!-- Estatísticas -->
+                    <div class="bg-light p-5 rounded text-center">
+                        <h3 class="text-primary mb-4">FutPro em Números</h3>
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <h2 class="text-primary">10+</h2>
+                                <p class="mb-0">Anos no mercado</p>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <h2 class="text-primary">50K+</h2>
+                                <p class="mb-0">Clientes satisfeitos</p>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <h2 class="text-primary">27</h2>
+                                <p class="mb-0">Estados atendidos</p>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <h2 class="text-primary">4.9</h2>
+                                <p class="mb-0">Avaliação média</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página Carrinho -->
+    <div id="carrinho" class="pagina p-4">
+        <div class="container">
+            <h2 class="text-center mb-4">🛒 Seu Carrinho</h2>
+            
+            <div id="conteudoCarrinho">
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Página Cadastro -->
+    <div id="cadastro" class="pagina p-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0">Finalizar Compra</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="formCadastro">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="nome" class="form-label">Nome Completo *</label>
+                                        <input type="text" class="form-control" id="nome" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">E-mail *</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="telefone" class="form-label">Telefone *</label>
+                                        <input type="tel" class="form-control" id="telefone" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="cpf" class="form-label">CPF *</label>
+                                        <input type="text" class="form-control" id="cpf" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="endereco" class="form-label">Endereço Completo *</label>
+                                    <textarea class="form-control" id="endereco" rows="3" required></textarea>
+                                </div>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-4">
+                                        <label for="cep" class="form-label">CEP *</label>
+                                        <input type="text" class="form-control" id="cep" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="cidade" class="form-label">Cidade *</label>
+                                        <input type="text" class="form-control" id="cidade" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="estado" class="form-label">Estado *</label>
+                                        <input type="text" class="form-control" id="estado" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5>Resumo do Pedido</h5>
+                                    <div id="resumoPedido" class="border p-3 bg-light rounded">
+                                        <!-- Resumo será preenchido via JavaScript -->
+                                    </div>
+                                </div>
+                                
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button type="button" class="btn btn-secondary me-md-2" onclick="mostrarPagina('carrinho')">
+                                        Voltar ao Carrinho
+                                    </button>
+                                    <button type="submit" class="btn btn-success">
+                                        Confirmar Compra
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-5">
+        <div class="text-center p-3 bg-primary text-white">
+            <p>Entre em contato em: </p>
+            <p>email: Futpro@outlook.com ou tel: 3199238745</p>
+            © 2025 FutPro. Todos os direitos reservados.
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // CSS mínimo necessário para o sistema de páginas
+        const style = document.createElement('style');
+        style.textContent = `
+            .pagina {
+                display: none;
+            }
+            .pagina.ativa {
+                display: block;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
